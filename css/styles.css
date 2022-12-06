@@ -204,9 +204,7 @@ header {
     background-color: #31D0AA;
 }
 
-.network-li + .network-li {
-    margin-left: 24px;
-}
+
 
 /* section 5 - customers */
 .customers>h2 {
@@ -643,7 +641,7 @@ header {
     opacity: 0;
 
     pointer-events: none;
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
 
     transform: translateX(100%);
     transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
@@ -651,7 +649,11 @@ header {
 }   
 
 .mobile-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     position: relative;
+    height: 100%;
     padding-top: 80px;
     padding-left: 40px;
     padding-right: 40px;
@@ -929,6 +931,10 @@ header {
 
 
 @media screen and (max-width: 767px) {
+    .list.contact {
+        display: flex;
+        flex-direction: column;
+    }
     .container-contact {
         display: none;
     }
@@ -947,13 +953,11 @@ header {
     .list-customers {
         display: flex;
         flex-wrap: wrap;
-        margin: -8px;
-        margin-bottom: -72px;
+        column-gap: 16px;
+        row-gap: 72px;
     }
     .company-number {
-        margin: 8px;
         width: calc((100% - 4 * 8px) / 2);
-        margin-bottom: 72px;
     }
     .bottom {
         margin-left: auto;
@@ -1005,7 +1009,7 @@ header {
     }
     .mobile-nav {
         display: block;
-        margin-bottom: 284px;
+        /* margin-bottom: 284px; */
     }
     .list-item {
         text-decoration: none;
@@ -1049,7 +1053,11 @@ header {
         justify-content: space-between;
         margin-top: 8px;
     }
-
+    .mobile-networks {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
     .network-item {
         fill: #f4f4fd;
         background-color: #4D5AE5;
@@ -1063,10 +1071,6 @@ header {
 
         transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
     }
-    .network-li+.network-li {
-        margin: 0;
-    }
-
 }
 
 @media screen and (min-width: 768px) and (max-width: 1157px) {
@@ -1105,17 +1109,18 @@ header {
         margin-bottom: 56px;
     }
     .company-number {
-        margin: 12px;
         /* width: calc((100% - 6 * 12px) / 3); */
         width: 168px;
-        margin-bottom: 72px;
+    }
+    .list.networks {
+        justify-content: space-between;
     }
     .list-customers {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        margin: -12px;
-        margin-bottom: -72px;
+        column-gap: 24px;
+        row-gap: 72px;
     }
     .container-footer {
         padding-left: 108px;
@@ -1145,6 +1150,9 @@ header {
         text-align: center;
         padding: 96px 0;
     }
+    .list .item-contact+.item-contact {
+        margin-top: 4px;
+}
 }
 
 
@@ -1176,9 +1184,6 @@ header {
         letter-spacing: 0.04em;
 
         transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-    .list .item-contact+.item-contact {
-        margin-top: 4px;
 }
     .feat {
         padding: 96px 0;
@@ -1264,6 +1269,9 @@ header {
             height: 112px;
             background-color: #F4F4FD;
             margin-bottom: 8px;
+        }
+        .list.networks {
+        justify-content: space-between;
         }
         .list-subtitle {
             color: #2E2F42;
